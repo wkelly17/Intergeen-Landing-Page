@@ -1,0 +1,621 @@
+/* Styles for intergreen project, completed September 12, 2020 */
+
+/* ==== Basic CSS Reset ==== */
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+/* ==== End CSS Reset ==== */
+/*@ global */
+.inner-container {
+  width: 1800px;
+  max-width: calc(100% - 4rem);
+  margin: 0 auto;
+}
+
+.sr-only:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+/*@ end global */
+.nav-container {
+  background: #d3dfeb;
+  margin-bottom: 1.25em;
+}
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.top-nav a {
+  display: inline-block;
+  color: rgb(118, 118, 202);
+  text-decoration: none;
+  font-size: 0.75rem;
+}
+
+.top-nav-social-icons .fab {
+  align-items: center;
+  font-size: 1.25rem;
+}
+
+.top-nav-items {
+  display: flex;
+  align-items: center;
+}
+
+.middle-actions {
+  display: flex;
+  align-items: center;
+  margin-right: 1em;
+  font-size: 0.75rem;
+}
+
+.top-user-actions,
+.user-checkout {
+  margin: 0 0.75em;
+}
+
+.top-nav-list {
+  display: flex;
+}
+.top-nav-links {
+  display: flex;
+}
+.top-nav-link {
+  display: inline-block;
+  padding: 0.5em 0.75em;
+}
+
+@media screen and (max-width: 992px) {
+  .middle-actions {
+    display: none;
+  }
+}
+@media screen and (max-width: 768px) {
+  .top-nav-social-icons {
+    display: none;
+  }
+  .top-nav {
+    justify-content: center;
+  }
+  .top-nav-list {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+
+/* ---------------- END TOP BAR --------------- */
+
+.top-header {
+  display: grid;
+  box-sizing: border-box;
+  grid-template-areas:
+    "header header . tr"
+    "header header . nav";
+  align-items: flex-end;
+  padding: 1em 0;
+}
+
+.branding {
+  grid-area: header;
+}
+.user-actions {
+  grid-area: tr;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.search-bar {
+  position: relative;
+}
+
+.search-bar i {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.cart-icons {
+  display: none;
+}
+.user-return-register {
+  display: none;
+}
+.user-return-register a {
+  text-decoration: none;
+  color: rgb(135, 207, 231);
+}
+.main-nav {
+  grid-area: nav;
+}
+
+.main-nav-list {
+  display: flex;
+  justify-content: flex-end;
+}
+.main-nav-list .hamburger {
+  display: none;
+}
+
+.main-nav-list a {
+  display: inline-block;
+  padding: 0.25em 0.5em;
+  font-size: 0.75rem;
+  color: rgb(131, 131, 231);
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 992px) {
+  .top-header {
+    grid-template-areas:
+      "header header . tr"
+      "header header . tr"
+      "nav nav nav nav";
+  }
+
+  .branding {
+    margin-bottom: 1em;
+  }
+  .main-nav-list {
+    justify-content: flex-start;
+  }
+  .user-actions {
+    align-self: flex-start;
+  }
+  .cart-icons {
+    display: block;
+    grid-area: tr;
+    align-self: center;
+  }
+  .search-bar {
+    order: 1;
+  }
+  .user-return-register {
+    display: block;
+    order: 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .top-header {
+    grid-template-areas:
+      "header header . tr"
+      "search search search search"
+      "nav nav nav nav";
+  }
+  .main-nav-list {
+    background: #bbb;
+    margin-top: 1em;
+  }
+  .main-nav-list a:not(.hamburger) {
+    display: none;
+  }
+
+  .main-nav-list .hamburger {
+    display: block;
+    font-weight: 900;
+    font-size: 1rem;
+    color: blue;
+  }
+  .user-actions {
+    grid-area: search;
+    justify-self: center;
+  }
+
+  .search-bar input {
+    width: 225px;
+    padding: 0.25em 0;
+  }
+  .search-bar {
+    order: 0;
+  }
+  .cart-icons {
+    display: block;
+    grid-area: tr;
+    justify-self: end;
+    align-self: center;
+    margin-bottom: 0.55em;
+  }
+  .user-return-register {
+    display: block;
+    margin-top: 0.5em;
+    order: 1;
+    align-self: center;
+  }
+}
+
+/* --------------- HERO SECTION --------------- */
+
+/* .hero-section {
+	height: 50vh;
+} */
+.hero-img-container {
+  display: flex;
+  justify-content: flex-end;
+  background: rgba(0, 0, 0, 0.401);
+  background-image: url("http://placegoat.com/1200");
+  background-blend-mode: multiply;
+  height: 70vh;
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-text {
+  width: 50%;
+  margin-right: 1em;
+  text-align: right;
+  color: #efefef;
+  display: none;
+}
+
+.hero-slider-buttons {
+  width: fit-content;
+  margin: -10px auto 0;
+  border: none;
+}
+
+.hero-slider-buttons .active {
+  background: #777;
+  border: none;
+}
+
+.hero-button {
+  display: inline-block;
+  padding: 4px;
+  border-radius: 50%;
+  border: none;
+  background: #ccc;
+}
+
+@media screen and (min-width: 769px) {
+  .hero-text {
+    display: block;
+  }
+
+  .hero-text h2 {
+    font-size: 2.25rem;
+  }
+
+  .hero-text h3 {
+    font-size: 1.5rem;
+    line-height: 1.7;
+    font-weight: 200;
+  }
+}
+
+/* -------------- BANNERS SECTION ------------- */
+
+.banners-section {
+  margin-top: 2.5em;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 1em;
+  row-gap: 1em;
+}
+
+.banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 25vh;
+  background: rgba(0, 0, 0, 0.401);
+  background-blend-mode: multiply;
+  background-size: cover;
+  background-position: center;
+}
+.banner-text {
+  color: #efefef;
+  width: 70%;
+  text-align: center;
+}
+.banner-first {
+  background-image: url("http://placegoat.com/400");
+}
+.banner-second {
+  background-image: url("http://placegoat.com/300");
+}
+.banner-third {
+  background-image: url("http://placegoat.com/410");
+}
+@media screen and (max-width: 576px) {
+  .banners-section {
+    margin-top: 1em;
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --------- FEATURED PRODUCTS SECTION -------- */
+.featured-products-section {
+  padding-bottom: 90px;
+}
+
+.featured-products-section h2 {
+  text-align: center;
+  margin: 1em 0;
+  color: #89a2b5;
+  font-weight: 900;
+}
+.product-grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
+  column-gap: 1em;
+  row-gap: 2em;
+}
+.product-grid-container img {
+  width: 100%;
+}
+
+.product-card {
+  position: relative;
+}
+.chevron-container {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.chevron-container .fas {
+  font-size: 1.75rem;
+  margin-bottom: 1.75em;
+  display: none;
+}
+
+.product-details {
+  display: flex;
+  justify-content: space-between;
+}
+
+.product-description {
+  width: 65%;
+}
+
+.product-price {
+  font-weight: 800;
+}
+.cart-button {
+  display: block;
+  padding: 0.5em 1.25em;
+  margin: 0.5em auto 0;
+  font-size: 0.75rem;
+  background: #739ec0;
+  color: #efefef;
+  font-weight: 500;
+  border-radius: 3px;
+}
+.view-more-container {
+  width: fit-content;
+  margin: 50px auto 0;
+  text-align: center;
+}
+
+.view-more-container a {
+  text-decoration: none;
+  color: #ababab;
+}
+
+@media screen and (max-width: 940px) {
+  .product-grid-container {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    column-gap: 4em;
+    row-gap: 2em;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .product-card:not(:first-child) {
+    display: none;
+  }
+  .chevron-container .fas {
+    display: inline-block;
+  }
+  .view-more-container {
+    display: none;
+  }
+}
+
+/* -------------- FOOTER SECTION -------------- */
+
+footer {
+  background: #d3dfeb;
+  padding-top: 1em;
+}
+
+footer .inner-container {
+  display: flex;
+  flex-direction: column;
+}
+
+footer .inner-container h3 {
+  display: none;
+}
+
+.shop-container {
+  display: none;
+}
+
+.info-container {
+  display: none;
+}
+
+.follow-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.follow-container button {
+  display: block;
+  margin: 1em auto 1em;
+  padding: 0.25em 1.75em;
+  background: #739ec0;
+  color: #efefef;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+.follow-container h4 {
+  order: 2;
+}
+
+.follow-form-container {
+  order: 1;
+}
+.follow-form-container p {
+  text-align: center;
+  margin-bottom: 0.5em;
+}
+.follow-container input {
+  width: 300px;
+  padding: 0.5em 0;
+}
+
+.follow-container .social-icons {
+  order: 3;
+}
+.follow-container .social-icons a {
+  margin: 0 0.25em;
+}
+
+.payment-container {
+  margin-top: 1.5em;
+  text-align: center;
+}
+.payment-container img {
+  border-radius: 4px;
+}
+
+/* ---------------- TABLET SIZE --------------- */
+
+@media screen and (min-width: 768px) {
+  footer .inner-container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .follow-container {
+    display: grid;
+    grid-template-areas:
+      "form form header"
+      "form form icons"
+      "form form .";
+    width: 60%;
+  }
+  .follow-container h4 {
+    grid-area: header;
+    justify-self: flex-end;
+  }
+
+  .follow-container .social-icons {
+    grid-area: icons;
+    justify-self: flex-end;
+  }
+  .follow-form-container {
+    grid-area: form;
+  }
+  .follow-form-container p {
+    text-align: left;
+  }
+  .payment-container {
+    margin-top: 0;
+  }
+  .follow-container button {
+    margin: 1em 0 1em;
+    padding: 0.25em 1.75em;
+  }
+}
+
+/* --------------- LAPTOP AND UP -------------- */
+@media screen and (min-width: 992px) {
+  footer .inner-container h3 {
+    display: block;
+  }
+  footer .inner-container a:not(.social-link) {
+    color: #9db2c3;
+    text-decoration: none;
+    text-transform: uppercase;
+    line-height: 1.5;
+    font-size: 0.725rem;
+  }
+
+  .shop-container {
+    display: block;
+  }
+
+  .info-container {
+    display: block;
+  }
+  .follow-container {
+    display: block;
+    width: auto;
+  }
+
+  .follow-container input {
+    width: 150px;
+  }
+}
+
+/* ----------------- COPYRIGHT ---------------- */
+
+.copyright {
+  display: none;
+  width: max-content;
+  margin: 0 auto;
+  padding-top: 40px;
+}
+
+.copyright a,
+.copyright p {
+  color: #9db2c3;
+  font-size: 0.5rem;
+  text-align: center;
+}
+
+@media screen and (min-width: 992px) {
+  .copyright {
+    display: block;
+  }
+}
+/* Reminder: the Bootstrap breakpoints are:  Small(576), medium(768), large(992) and xl(1200) */
